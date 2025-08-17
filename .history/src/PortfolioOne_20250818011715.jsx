@@ -36,8 +36,7 @@ import {
   MousePointerClick,
   Zap,
   Brain,
-  Heart,
-  MessageCircle
+  Heart
 } from "lucide-react";
 import CursorTrail from "./components/CursorTrail";
 import BackgroundEffects from "./components/BackgroundEffects";
@@ -424,7 +423,7 @@ export default function PortfolioOne() {
   whileTap={{ scale: 0.95 }}
 >
   {/* Replace Send icon with MessageCircle or any other chat icon */}
-  <MessageCircle className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+  {/* <MessageCircle className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" /> */}
   <span>Let's Collaborate</span>
 </motion.a>
 

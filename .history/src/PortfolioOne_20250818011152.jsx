@@ -36,8 +36,7 @@ import {
   MousePointerClick,
   Zap,
   Brain,
-  Heart,
-  MessageCircle
+  Heart
 } from "lucide-react";
 import CursorTrail from "./components/CursorTrail";
 import BackgroundEffects from "./components/BackgroundEffects";
@@ -416,17 +415,14 @@ export default function PortfolioOne() {
               transition={{ delay: 2 }}
             >
               <motion.a
-  href={`https://wa.me/${userData.phone.replace(/[^0-9]/g, '')}?text=Hi%20${userData.name.split(' ')[0]},%20I'm%20interested%20in%20collaborating%20with%20you!`}
-  target="_blank"
-  rel="noopener noreferrer"
-  className="group bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white px-10 py-5 rounded-2xl font-bold text-lg transition-all duration-300 shadow-2xl hover:shadow-orange-500/25 flex items-center space-x-3 interactive"
-  whileHover={{ scale: 1.05, y: -2 }}
-  whileTap={{ scale: 0.95 }}
->
-  {/* Replace Send icon with MessageCircle or any other chat icon */}
-  <MessageCircle className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-  <span>Let's Collaborate</span>
-</motion.a>
+                href={`mailto:${userData.email}`}
+                className="group bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white px-10 py-5 rounded-2xl font-bold text-lg transition-all duration-300 shadow-2xl hover:shadow-orange-500/25 flex items-center space-x-3 interactive"
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+                <span>Let's Collaborate</span>
+              </motion.a>
 
               <motion.a
                 href={userData.resumeUrl}

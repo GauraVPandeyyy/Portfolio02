@@ -36,8 +36,7 @@ import {
   MousePointerClick,
   Zap,
   Brain,
-  Heart,
-  MessageCircle
+  Heart
 } from "lucide-react";
 import CursorTrail from "./components/CursorTrail";
 import BackgroundEffects from "./components/BackgroundEffects";

@@ -89,7 +89,7 @@ export const projects = [
     image: "/assets/neurodentica.png",
     technologies: ["HTML", "CSS", "JavaScript", "Bootstrap", "PHP", "MySQL"],
     liveUrl: "https://neurodentica.com/",
-    githubUrl: "https://github.com/GauraVPandeyyy/NeuroDentica", // if repo is private, keep it "#"
+    #githubUrl: "https://github.com/GauraVPandeyyy/NeuroDentica", // if repo is private, keep it "#"
     featured: true,
     category: "Client Project",
     metrics: {

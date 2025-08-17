@@ -94,8 +94,8 @@ export const projects = [
     category: "Client Project",
     metrics: {
       users: "Doctors",
-      performance: "Super Fast",
-      design: "Healthcare UI"
+      performance: "Reusable + Responsive",
+      design: "Professional Healthcare UI"
     },
     impact: "Delivered a fully functional and professional website for a live dental clinic, enhancing their online presence and credibility."
   }

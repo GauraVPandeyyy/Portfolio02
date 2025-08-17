@@ -95,7 +95,7 @@ export const projects = [
     metrics: {
       users: "Doctors",
       performance: "Super Fast",
-      design: "Healthcare UI"
+      design: "Professional Healthcare UI"
     },
     impact: "Delivered a fully functional and professional website for a live dental clinic, enhancing their online presence and credibility."
   }
