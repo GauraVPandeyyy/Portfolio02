@@ -332,24 +332,20 @@ export default function PortfolioOne() {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5 }}
             >
-              <motion.h1
-                className="text-6xl md:text-7xl lg:text-8xl font-black text-white mb-6 leading-tight"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.6 }}
-              >
-                {userData.name.split('').map((char, index) => (
-                  <motion.span
-                    key={index}
-                    initial={{ opacity: 0, y: 50 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.7 + index * 0.05 }}
-                    className="inline-block"
-                  >
-                    {char === ' ' ? '\u00A0' : char}
-                  </motion.span>
-                ))}
-              </motion.h1>
+              <div style={{position: 'relative', height: '300px'}}>
+  <TextPressure
+    text="Hello!"
+    flex={true}
+    alpha={false}
+    stroke={false}
+    width={true}
+    weight={true}
+    italic={true}
+    textColor="#ffffff"
+    strokeColor="#ff0000"
+    minFontSize={36}
+  />
+</div>
 
               <motion.h2
                 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent mb-6"

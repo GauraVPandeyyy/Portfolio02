@@ -920,233 +920,144 @@ export default function PortfolioOne() {
 
         {/* Projects Section */}
         <section id="projects" className="py-20">
-  <div className="text-center mb-16">
-    <motion.h2
-      className="text-5xl md:text-6xl font-bold text-white mb-6"
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6, type: 'spring', damping: 10 }}
-    >
-      Featured{" "}
-      <span className="bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent">
-        Projects
-      </span>
-    </motion.h2>
-  </div>
+          <div className="text-center mb-16">
+            <motion.h2
+              className="text-5xl md:text-6xl font-bold text-white mb-6"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              Featured{" "}
+              <span className="bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent">
+                Projects
+              </span>
+            </motion.h2>
+          </div>
 
-  <div className="grid lg:grid-cols-2 gap-12">
-    {projects.map((project, index) => (
-      <motion.div
-        key={project.id}
-        className="group bg-neutral-900/50 border border-neutral-800 rounded-3xl overflow-hidden hover:border-orange-500/50 transition-all duration-500 relative"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ 
-          duration: 0.6, 
-          delay: index * 0.2,
-          type: 'spring',
-          stiffness: 100
-        }}
-        whileHover={{ 
-          scale: 1.02, 
-          y: -5,
-          boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.5)'
-        }}
-      >
-        {/* Glow effect on hover */}
-        <div className="absolute inset-0 bg-gradient-to-br from-orange-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl pointer-events-none"></div>
-        
-        <div className="relative overflow-hidden h-72">
-          <motion.img
-            src={project.image}
-            alt={project.title}
-            className="w-full h-full object-cover group-hover:brightness-110 transition-all duration-500"
-            initial={{ scale: 1 }}
-            whileHover={{ scale: 1.1 }}
-            transition={{ 
-              duration: 0.8,
-              ease: [0.25, 0.1, 0.25, 1]
-            }}
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-
-          {/* Project Category Badge */}
-          <motion.div
-            className="absolute top-6 right-6"
-            initial={{ opacity: 0, y: -20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ 
-              duration: 0.6, 
-              delay: 0.3,
-              type: 'spring'
-            }}
-          >
-            <span className="bg-gradient-to-r from-orange-500 to-red-500 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg hover:shadow-orange-500/20 transition-all duration-300 inline-block hover:scale-105">
-              {project.category}
-            </span>
-          </motion.div>
-
-          {/* Impact Badge */}
-          <motion.div
-            className="absolute bottom-6 left-6 opacity-0 group-hover:opacity-100"
-            initial={{ opacity: 0, y: 20 }}
-            whileHover={{ 
-              opacity: 1, 
-              y: 0,
-              transition: { 
-                type: 'spring',
-                stiffness: 300,
-                damping: 20
-              }
-            }}
-          >
-            <div className="bg-black/80 backdrop-blur-sm border border-orange-500/30 rounded-xl px-4 py-2 shadow-lg hover:shadow-orange-500/10 transition-all duration-300">
-              <p className="text-orange-400 font-semibold text-sm">{project.impact}</p>
-            </div>
-          </motion.div>
-        </div>
-
-        <div className="p-8 relative">
-          {/* Title with subtle underline effect */}
-          <motion.h3 
-            className="text-2xl font-bold text-white mb-4 inline-block relative"
-            whileHover={{
-              transition: { duration: 0.3 }
-            }}
-          >
-            {project.title}
-            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-500 group-hover:w-full transition-all duration-500 ease-out"></span>
-          </motion.h3>
-          
-          <motion.p 
-            className="text-neutral-300 mb-6 leading-relaxed"
-            initial={{ opacity: 0.8 }}
-            whileHover={{ opacity: 1 }}
-            transition={{ duration: 0.3 }}
-          >
-            {project.description}
-          </motion.p>
-
-          {/* Project Metrics - Enhanced with hover effects */}
-          <motion.div 
-            className="grid grid-cols-3 gap-4 mb-6 p-4 bg-black/30 rounded-xl border border-neutral-800 group-hover:border-orange-500/30 transition-all duration-500"
-            whileHover={{ 
-              y: -3,
-              boxShadow: '0 5px 15px -5px rgba(249, 115, 22, 0.3)'
-            }}
-          >
-            {Object.entries(project.metrics).map(([key, value]) => (
-              <motion.div 
-                key={key} 
-                className="text-center hover:text-orange-400 transition-colors duration-300"
-                whileHover={{ scale: 1.05 }}
+          <div className="grid lg:grid-cols-2 gap-12">
+            {projects.map((project, index) => (
+              <motion.div
+                key={project.id}
+                className="group bg-neutral-900/50 border border-neutral-800 rounded-3xl overflow-hidden hover:border-orange-500/50 transition-all duration-500"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.2 }}
+                whileHover={{ scale: 1.02, y: -5 }}
               >
-                <div className="text-orange-400 font-bold text-lg">{value}</div>
-                <div className="text-neutral-400 text-xs capitalize">{key}</div>
+                <div className="relative overflow-hidden h-72">
+                  <motion.img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover"
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ duration: 0.6, delay:0 }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
+                  {/* Project Category Badge */}
+                  <motion.div
+                    className="absolute top-6 right-6"
+                    initial={{ opacity: 0, y: -20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.3 }}
+                  >
+                    <span className="bg-orange-500 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg">
+                      {project.category}
+                    </span>
+                  </motion.div>
+
+                  {/* Impact Badge */}
+                  <motion.div
+                    className="absolute bottom-6 left-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileHover={{ opacity: 1, y: 0 }}
+                  >
+                    <div className="bg-black/80 backdrop-blur-sm border border-orange-500/30 rounded-xl px-4 py-2">
+                      <p className="text-orange-400 font-semibold text-sm">{project.impact}</p>
+                    </div>
+                  </motion.div>
+                </div>
+
+                <div className="p-8">
+                  <h3 className="text-2xl font-bold text-white mb-4">{project.title}</h3>
+                  <p className="text-neutral-300 mb-6 leading-relaxed">{project.description}</p>
+
+                  {/* Project Metrics */}
+                  <div className="grid grid-cols-3 gap-4 mb-6 p-4 bg-black/30 rounded-xl border border-neutral-800">
+                    {Object.entries(project.metrics).map(([key, value]) => (
+                      <div key={key} className="text-center">
+                        <div className="text-orange-400 font-bold text-lg">{value}</div>
+                        <div className="text-neutral-400 text-xs capitalize">{key}</div>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Technology Stack */}
+                  <div className="flex flex-wrap gap-2 mb-8">
+                    {project.technologies.map((tech, techIndex) => (
+                      <motion.span
+                        key={techIndex}
+                        className="bg-neutral-800 hover:bg-neutral-700 text-neutral-300 px-3 py-2 rounded-lg text-sm font-medium transition-colors duration-200 interactive"
+                        whileHover={{ scale: 1.05 }}
+                      >
+                        {tech}
+                      </motion.span>
+                    ))}
+                  </div>
+
+                  {/* Action Buttons */}
+                  <div className="flex space-x-4">
+                    {project.liveUrl && (
+                      <motion.a
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center space-x-2 bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 hover:scale-105 shadow-lg interactive"
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                      >
+                        <Eye className="w-5 h-5" />
+                        <span>Live Demo</span>
+                        <ExternalLink className="w-4 h-4" />
+                      </motion.a>
+                    )}
+                    {project.githubUrl && (
+                      <motion.a
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center space-x-2 border border-neutral-600 hover:border-orange-500 text-neutral-300 hover:text-orange-400 px-6 py-3 rounded-xl font-semibold transition-all duration-300 hover:scale-105 interactive"
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                      >
+                        <Github className="w-5 h-5" />
+                        <span>Source Code</span>
+                      </motion.a>
+                    )}
+                  </div>
+                </div>
               </motion.div>
             ))}
-          </motion.div>
-
-          {/* Technology Stack - Enhanced with staggered animations */}
-          <div className="flex flex-wrap gap-2 mb-8">
-            {project.technologies.map((tech, techIndex) => (
-              <motion.span
-                key={techIndex}
-                className="bg-neutral-800 hover:bg-neutral-700 text-neutral-300 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 interactive"
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ 
-                  duration: 0.3,
-                  delay: 0.1 * techIndex,
-                  type: 'spring',
-                  stiffness: 200
-                }}
-                whileHover={{ 
-                  scale: 1.1,
-                  backgroundColor: '#1e293b', // slate-800
-                  color: '#f97316', // orange-500
-                  boxShadow: '0 0 10px rgba(249, 115, 22, 0.3)'
-                }}
-              >
-                {tech}
-              </motion.span>
-            ))}
           </div>
 
-          {/* Action Buttons - Enhanced with glow effects */}
-          <div className="flex space-x-4">
-            {project.liveUrl && (
-              <motion.a
-                href={project.liveUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="relative flex items-center space-x-2 bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-orange-500/30 interactive overflow-hidden"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                {/* Button shine effect */}
-                <span className="absolute top-0 left-0 w-full h-full bg-white opacity-0 group-hover:opacity-10 group-hover:animate-shine transition-opacity duration-300"></span>
-                <Eye className="w-5 h-5" />
-                <span>Live Demo</span>
-                <ExternalLink className="w-4 h-4" />
-              </motion.a>
-            )}
-            {project.githubUrl && (
-              <motion.a
-                href={project.githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="relative flex items-center space-x-2 border border-neutral-600 hover:border-orange-500 text-neutral-300 hover:text-orange-400 px-6 py-3 rounded-xl font-semibold transition-all duration-300 hover:scale-105 hover:shadow-orange-500/10 interactive"
-                whileHover={{ 
-                  scale: 1.05,
-                  boxShadow: '0 0 15px rgba(249, 115, 22, 0.1)'
-                }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Github className="w-5 h-5" />
-                <span>Source Code</span>
-              </motion.a>
-            )}
+          {/* View All Projects CTA */}
+          <div className="text-center mt-16">
+            <motion.a
+              href={userData.social.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center space-x-3 bg-neutral-900 hover:bg-neutral-800 border border-neutral-700 hover:border-orange-500 text-neutral-300 hover:text-orange-400 px-10 py-5 rounded-2xl font-semibold transition-all duration-300 interactive"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <span className="text-lg">View All Projects on GitHub</span>
+              <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform duration-300" />
+            </motion.a>
           </div>
-        </div>
-      </motion.div>
-    ))}
-  </div>
-
-  {/* View All Projects CTA - Enhanced with floating animation */}
-  <div className="text-center mt-16">
-    <motion.a
-      href={userData.social.github}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="group relative inline-flex items-center space-x-3 bg-neutral-900 hover:bg-neutral-800 border border-neutral-700 hover:border-orange-500 text-neutral-300 hover:text-orange-400 px-10 py-5 rounded-2xl font-semibold transition-all duration-300 interactive overflow-hidden"
-      initial={{ y: 0 }}
-      animate={{ 
-        y: [0, -5, 0],
-        transition: {
-          duration: 4,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }
-      }}
-      whileHover={{ 
-        scale: 1.05,
-        y: 0,
-        animationPlayState: 'paused'
-      }}
-      whileTap={{ scale: 0.95 }}
-    >
-      {/* Glow effect */}
-      <span className="absolute inset-0 bg-orange-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
-      <span className="text-lg">View All Projects on GitHub</span>
-      <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform duration-300" />
-    </motion.a>
-  </div>
-</section>
+        </section>
 
         {/* Testimonials Section */}
         <section id="testimonials" className="py-20">
