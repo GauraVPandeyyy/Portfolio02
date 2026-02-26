@@ -45,11 +45,11 @@ export default function SkillsSection() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-50px" }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-3 md:gap-6"
         >
           
           {/* 1. CORE STACK - Full Width Highlight */}
-          <motion.div variants={item} className="md:col-span-2 lg:col-span-12 rounded-[2rem] bg-gradient-to-b from-white/5 to-transparent border border-white/10 p-4 md:p-10 flex flex-col md:flex-row items-center justify-between gap-8 group hover:border-white/20 transition-colors duration-500 relative overflow-hidden">
+          <motion.div variants={item} className="md:col-span-2 lg:col-span-12 rounded-[2rem] bg-gradient-to-b from-white/5 to-transparent border border-white/10 p-2 md:p-8 flex flex-col md:flex-row items-center justify-between gap-8 group hover:border-white/20 transition-colors duration-500 relative overflow-hidden">
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] bg-orange-500/10 blur-[100px] rounded-full pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
             
             <div className="flex items-center gap-5 relative z-10">

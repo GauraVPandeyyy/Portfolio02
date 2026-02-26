@@ -37,7 +37,7 @@ export default function ExperienceSection({ userData }) {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="relative pl-12"
+                  className="relative pl-6 md:pl-12"
                 >
                   {/* Timeline Dot */}
                   <div className="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-orange-500 ring-4 ring-black" />

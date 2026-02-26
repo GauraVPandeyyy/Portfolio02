@@ -55,7 +55,7 @@ export default function AboutSection({ userData }) {
 
               {/* Code Content - Responsive Text Size */}
               <div className="p-4 md:p-6 font-mono text-xs md:text-sm leading-relaxed overflow-x-auto">
-                <div className="flex gap-4 min-w-[300px]"> 
+                <div className="flex gap-4 min-w-[250px]"> 
                   {/* Line Numbers */}
                   <div className="flex flex-col text-neutral-700 select-none text-right">
                     {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(n => <span key={n}>{n}</span>)}

@@ -48,7 +48,7 @@ export default function HeroSection({ userData }) {
   return (
     <section
       id="home"
-      className="min-h-[100dvh] flex items-center pt-20 md:pt-32 pb-20 overflow-hidden relative"
+      className="min-h-[100dvh] flex items-center pt-10 md:pt-20 pb-20 overflow-hidden relative"
     >
       {/* --- BACKGROUND GLOWS (Strict Orange/Red Theme) --- */}
       {/* <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
@@ -128,7 +128,7 @@ export default function HeroSection({ userData }) {
             </div> */}
 
             <div className="space-y-1">
-              <h1 className="flex flex-col text-2xl md:text-6xl font-black text-white -tracking-normal">
+              <h1 className="flex flex-col text-3xl md:text-6xl font-black text-white -tracking-normal">
                 {/* Line 1: Standard White */}
                 <div className="overflow-hidden h-[1.1em] flex items-center justify-center lg:justify-start">
                   <Shuffle

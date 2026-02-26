@@ -40,7 +40,7 @@ export default function ProjectsSection() {
         <ScrollStack 
           useWindowScroll={true} 
           itemDistance={40} 
-          itemStackDistance={45} // Thoda gap badhaya taki smooth dikhe
+          itemStackDistance={10} // Thoda gap badhaya taki smooth dikhe
           baseScale={0.8}
           blurAmount={0} // SHAKING ROKNE KE LIYE ISKO 0 KIYA HAI
         >
@@ -51,7 +51,7 @@ export default function ProjectsSection() {
             >
               
               {/* Left Side: Content */}
-              <div className="flex-1 p-8 lg:p-14 flex flex-col justify-center relative z-10 w-full">
+              <div className="flex-1 p-6 lg:p-8 flex flex-col justify-center relative z-10 w-full">
                 
                 <div className="flex items-center justify-between mb-4">
                   <span className="text-orange-500 text-xs font-bold tracking-widest uppercase block">
@@ -64,17 +64,17 @@ export default function ProjectsSection() {
                   )}
                 </div>
 
-                <h3 className="text-3xl md:text-5xl font-black text-white tracking-tight mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-orange-400 transition-all duration-300">
+                <h3 className="text-3xl md:text-4xl font-black text-white tracking-tight mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-orange-400 transition-all duration-300">
                   {project.title}
                 </h3>
                 
-                <p className="text-neutral-400 text-base md:text-lg leading-relaxed mb-8 max-w-xl">
+                <p className="text-neutral-400 text-base md:text-lg leading-relaxed mb-4 md:mb-8 max-w-xl">
                   {project.description}
                 </p>
 
                 {/* Metrics Highlights */}
                 {project.metrics && (
-                  <div className="grid grid-cols-2 gap-4 mb-8">
+                  <div className="grid grid-cols-2 gap-2 md:gap-4 mb-4 md:mb-8">
                     {Object.entries(project.metrics).map(([key, value]) => (
                       <div key={key} className="border-l-2 border-orange-500/50 pl-3">
                         <div className="text-[10px] text-neutral-500 uppercase tracking-widest">{key}</div>
@@ -85,7 +85,7 @@ export default function ProjectsSection() {
                 )}
 
                 {/* Tech Stack Pills */}
-                <div className="flex flex-wrap gap-2 mb-10 mt-auto">
+                <div className="flex flex-wrap gap-1 md:gap-2 mb-4 md:mb-8 mt-auto">
                   {project.technologies.map((tech) => (
                     <span
                       key={tech}
@@ -97,13 +97,13 @@ export default function ProjectsSection() {
                 </div>
 
                 {/* Action Buttons */}
-                <div className="flex flex-wrap items-center gap-4">
+                <div className="flex flex-wrap items-center gap-2 md:gap-4">
                   {project.liveUrl && (
                     <a 
                       href={project.liveUrl} 
                       target="_blank" 
                       rel="noreferrer" 
-                      className="group/btn flex items-center gap-2 px-6 py-3 rounded-full bg-white text-black font-bold hover:bg-orange-500 hover:text-white transition-all duration-300"
+                      className="group/btn flex items-center gap-2 px-3 py-1 md:px-5 md:py-3 rounded-full bg-white text-black font-bold hover:bg-orange-500 hover:text-white transition-all duration-300"
                     >
                       View Live 
                       <ExternalLink className="w-4 h-4 group-hover/btn:-translate-y-0.5 group-hover/btn:translate-x-0.5 transition-transform" />
@@ -114,7 +114,7 @@ export default function ProjectsSection() {
                       href={project.githubUrl} 
                       target="_blank" 
                       rel="noreferrer" 
-                      className="flex items-center gap-2 px-6 py-3 rounded-full bg-white/5 border border-white/10 text-white font-bold hover:bg-white/10 hover:border-white/20 transition-all"
+                      className="flex items-center gap-2 px-3 py-1 md:px-5 md:py-3 rounded-full bg-white/5 border border-white/10 text-white font-bold hover:bg-white/10 hover:border-white/20 transition-all"
                     >
                       <Github className="w-4 h-4" /> Source
                     </a>
@@ -123,7 +123,7 @@ export default function ProjectsSection() {
               </div>
 
               {/* Right Side: Image with Parallax & Hover Effect */}
-              <div className="flex-1 relative hidden md:block overflow-hidden bg-neutral-900 border-l border-white/5">
+              <div className="flex-1 relative hidden md:block  overflow-hidden bg-neutral-900 border-l border-white/5">
                 {/* Real Image from userData.js */}
                 <img 
                   src={project.image} 

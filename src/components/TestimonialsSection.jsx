@@ -32,7 +32,7 @@ export default function TestimonialsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="group relative p-8 md:p-10 rounded-3xl bg-neutral-900/20 backdrop-blur-sm border border-white/5 hover:border-white/10 transition-colors"
+              className="group relative p-4 md:p-8 rounded-3xl bg-neutral-900/20 backdrop-blur-sm border border-white/5 hover:border-white/10 transition-colors"
             >
               {/* Subtle Gradient Glow on Hover */}
               <div className="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl pointer-events-none" />

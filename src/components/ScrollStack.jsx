@@ -4,7 +4,7 @@ import Lenis from 'lenis';
 
 // FIX 1: Added a static wrapper to prevent transform feedback loops
 export const ScrollStackItem = ({ children, itemClassName = '' }) => (
-  <div className="scroll-stack-wrapper relative w-full h-[600px] lg:h-[600px] my-8">
+  <div className="scroll-stack-wrapper relative w-full h-[550px] md:h-[500px] my-8">
     <div
       className={`scroll-stack-card absolute inset-0 w-full h-full p-0 rounded-[2.5rem] shadow-2xl box-border origin-top will-change-transform ${itemClassName}`.trim()}
       style={{
@@ -353,7 +353,7 @@ const ScrollStack = ({
 
   return (
     <div className={containerClassName} ref={scrollerRef} style={containerStyles}>
-      <div className="scroll-stack-inner pt-[8vh] px-4 md:px-8 lg:px-20 pb-[20rem] min-h-screen">
+      <div className="scroll-stack-inner pt-[8vh]  pb-[20rem] min-h-screen">
         {children}
         <div className="scroll-stack-end w-full h-px" />
       </div>
