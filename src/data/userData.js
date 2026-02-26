@@ -1,74 +1,166 @@
+// src/data/userData.js
 export const userData = {
   name: "Gaurav Pandey",
-  title: "Frontend Developer",
-  tagline: "Crafting immersive digital experiences with modern web technologies",
-  location: "Lucknow, UP",
+  title: "Full Stack Developer (React + Node.js)",
+  tagline:
+    "Full stack developer with a frontend-first mindset — building animated, API-driven web apps using React, Node.js, and modern tooling.",
+  location: "Lucknow, India",
   email: "gauravp9118@gmail.com",
   phone: "+91 9118357637",
   website: "https://gauravpandey.dev",
-  resumeUrl: "https://drive.google.com/file/d/1tG9UrIIn5WoXASbIYygaGrJx7fg_pyGD/view?usp=sharing",
-  avatar: "/assets/profile.png",
+  resumeUrl:
+    "https://drive.google.com/file/d/1_2I_QX-HLCZ-5LmNb4M_1EvbBxLr6KU3/view?usp=sharing",
+  avatar: "/assets/profile.jpeg",
   availableForHire: true,
-  availabilityText: "Open to Frontend roles",
-  bio: "Frontend developer specializing in React and modern JavaScript. Currently interning at Meta Future Services where I built their company website. Passionate about creating responsive, performant web applications with clean code and great user experiences.",
+  availabilityText: "Actively seeking full stack roles & internships",
+
+  bio: `
+Full stack developer with a strong focus on frontend. I design and build interactive, production-ready interfaces using React, Tailwind, and Framer Motion — and wire them to real APIs using Node.js, Express, and MongoDB. 
+I've worked on company websites, a clinic platform, an investment product, and an AI caption generator. Right now I'm doubling down on backend depth: Node.js, Express, and scalable patterns.
+  `.trim(),
+
   experience: [
     {
       company: "Meta Future Services",
       role: "Frontend Developer Intern",
-      period: "June 2025 - Present",
-      location: "On Site",
+      period: "15 Mar 2025 – 15 Sep 2025",
+      location: "Lucknow (On-site)",
       achievements: [
-        "Developed company website using HTML, CSS, JavaScript, GSAP, and AOS animations",
-        "Implemented responsive design ensuring compatibility across all devices",
-        "Optimized website performance and loading times"
-      ]
-    }
+        "Delivered 3 client-facing projects: company site, clinic system, and investment platform.",
+        "Implemented responsive UI, animations (GSAP/Framer Motion), and reusable component patterns.",
+        "Integrated frontend with APIs, basic auth flows, and handled deployments on Hostinger and Vercel.",
+      ],
+    },
   ],
+
   training: [
     {
-      name: "Web Development Training",
-      institute: "Sheryians Coding School",
-      period: "Jan 2025 - June 2025",
-      skills: ["React", "JavaScript", "HTML/CSS"]
+      name: "Full-Stack MERN Course",
+      institute: "Sheryians Coding School (Online)",
+      period: "Jan 2025 – Oct 2025",
+      skills: ["React", "Node.js", "Express", "MongoDB", "Full-Stack Apps"],
     },
     {
       name: "DSA with Java",
       institute: "Online Program",
-      period: "May 2024 - July 2024",
-      skills: ["Data Structures", "Algorithms", "Problem Solving"]
-    }
+      period: "May 2024 – July 2024",
+      skills: ["Data Structures", "Algorithms", "Problem Solving"],
+    },
   ],
+
   education: [
     {
-      degree: "Bachelor of Computer Application",
-      school: "University of Lucknow",
-      period: "2023 - 2026",
-      gpa: "8.5/10.0"
-    }
+      degree: "Bachelor of Computer Application (BCA)",
+      school: "Techno Institute of Higher Studies, Lucknow",
+      period: "2023 – 2026 (Expected)",
+      gpa: "8.6 / 10.0",
+    },
   ],
+
   certifications: [
-    "Web Development Certification",
-    "DSA with Java Certification"
+    "Full-Stack MERN Course — Sheryians Coding School",
+    "DSA with Java Certification",
   ],
+
+  achievements: [
+    "Solved 100+ DSA problems on LeetCode.",
+    "Ranked in Top 5,000 / 25,000+ in HackWithIndia Hackathon.",
+  ],
+
   social: {
     github: "https://github.com/GauraVPandeyyy",
     linkedin: "https://www.linkedin.com/in/gaurav-pandey-0987162a0/",
     twitter: "https://x.com/gaura_vp9118",
     website: "https://gauravpandey.dev",
   },
+
   stats: {
-    experience: "0.6+",
-    projects: "3+",
-    clients: "3+",
+    experience: "1+ yrs",
+    projects: "5+ projects",
+    clients: "3+ clients",
   },
 };
 
-// Projects data
+// Clean, compact skills for UI (no percentages/years in UI)
+export const skills = {
+  coreStack: ["React", "Node.js", "Express", "MongoDB", "JavaScript (ES6+)", "Tailwind CSS"],
+  frontend: ["React", "JavaScript (ES6+)", "HTML5", "CSS3", "Tailwind CSS", "Framer Motion", "GSAP"],
+  backend: ["Node.js", "Express"],
+  database: ["MongoDB", "MySQL"],
+  tools: ["Git", "GitHub", "Postman", "VS Code", "Vercel", "Hostinger", "Netlify"],
+};
+
 export const projects = [
-  {
+    {
     id: 1,
+    title: "Teerthankar Jewels — E-Commerce",
+    description:
+      "Jewellery e-commerce frontend with product listings, filters, cart logic, and smooth transitions.",
+    image: "/assets/teerthankar.png",
+    technologies: ["React", "Tailwind CSS", "Framer Motion", "REST APIs"],
+    liveUrl: "https://teerthankar.vercel.app",
+    githubUrl: "https://github.com/GauraVPandeyyy/Teerthankar",
+    featured: false,
+    category: "E-Commerce",
+    metrics: {
+      catalog: "Dynamic products & categories",
+      experience: "Smooth micro-interactions",
+    },
+    impact:
+      "Demonstrates real-world e-commerce UX with animations.",
+  },
+  {
+    id: 2,
+    title: "CapGen — AI Caption Generator",
+    description:
+      "Full-stack app for AI-powered image captioning using Gemini API, with auth, uploads, and a complete pipeline.",
+    image: "/assets/capgen.png",
+    technologies: [
+      "React",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "Gemini API",
+      "Clerk",
+      "ImageKit",
+      "Tailwind",
+    ],
+    liveUrl: "https://gaurav-caption-ai.vercel.app",
+    githubUrl: "https://github.com/GauraVPandeyyy/CaptionAI",
+    featured: true,
+    category: "Full-Stack",
+    metrics: {
+      pipeline: "End-to-end flow",
+      media: "Image uploads & storage",
+    },
+    impact:
+      "Shows end-to-end thinking across frontend, backend, and third-party APIs.",
+  },
+   {
+    id: 3,
+    title: "NeuroDentica — Clinic Website",
+    description:
+      "Multi-page dental clinic website with patient forms, admin panel (PHP/MySQL), and responsive healthcare UI.",
+    image: "/assets/neurodentica.png",
+    technologies: ["HTML", "CSS", "JavaScript", "Bootstrap", "PHP", "MySQL"],
+    liveUrl: "https://neurodentica.com/",
+    githubUrl: "https://github.com/GauraVPandeyyy/NeuroDentica",
+    featured: true,
+    category: "Client Project",
+    metrics: {
+      users: "Doctors & Patients",
+      performance: "Very fast",
+      design: "Healthcare-focused",
+    },
+    impact:
+      "Improved clinic’s online presence and simplified patient communication.",
+  }
+  ,
+  {
+    id: 4,
     title: "Meta Future Services Website",
-    description: "Developed the official website for Meta Future Services using modern web technologies including GSAP for animations and AOS for scroll animations. Implemented responsive design and optimized performance.",
+    description:
+      "Official marketing website for Meta Future Services with GSAP and scroll-based animations. Fully responsive and performance-optimized for production use.",
     image: "/assets/mfs.png",
     technologies: ["HTML5", "CSS3", "JavaScript", "GSAP", "AOS"],
     liveUrl: "https://metafutureservices.in/",
@@ -76,74 +168,52 @@ export const projects = [
     featured: true,
     category: "Company Website",
     metrics: {
-      users: "Company",
+      users: "Corporate",
       performance: "Fast loading",
-      animations: "GSAP & AOS"
+      animations: "GSAP & AOS",
     },
-    impact: "Official company website now live and in use"
+    impact: "Production marketing site actively used by the company.",
   },
+ 
   {
-    id: 2,
-    title: "NeuroDentica Website",
-    description: "Developed the frontend for NeuroDentica, a professional website for a dental clinic. Implemented a clean and modern UI with responsive layouts, interactive components, and optimized performance to deliver a seamless user experience.",
-    image: "/assets/neurodentica.png",
-    technologies: ["HTML", "CSS", "JavaScript", "Bootstrap", "PHP", "MySQL"],
-    liveUrl: "https://neurodentica.com/",
-    githubUrl: "https://github.com/GauraVPandeyyy/NeuroDentica", // if repo is private, keep it "#"
+    id: 5,
+    title: "FutureTrade — Investment Platform",
+    description:
+      "Frontend for an investment platform with JWT auth, buy flow, monthly interest UI, and transaction feeds.",
+    image: "/assets/futuretrade.png",
+    technologies: [
+      "React",
+      "Tailwind",
+      "Framer Motion",
+      "Axios",
+      "Context API",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "JWT",
+    ],
+    liveUrl: "https://future-trade-eight.vercel.app",
+    githubUrl: "https://github.com/GauraVPandeyyy/Future-Trade",
     featured: true,
-    category: "Client Project",
+    category: "Product Frontend",
     metrics: {
-      users: "Doctors",
-      performance: "Super Fast",
-      design: "Healthcare UI"
+      ux: "Lazy-loading & optimistic updates",
+      security: "JWT auth",
+      api: "Error-handled API calls",
     },
-    impact: "Delivered a fully functional and professional website for a live dental clinic, enhancing their online presence and credibility."
-  }
+    impact:
+      "Shows ability to work with auth, protected flows, and real APIs.",
+  },
 
 ];
 
-// Skills data
-export const skills = {
-  frontend: [
-    { name: "React", level: 70, icon: "⚛️", years: 0.5, projects: 3 },
-    { name: "Redux Toolkit", level: 60, icon: "🗂️", years: 0.3, projects: 1 },
-    { name: "JavaScript (ES6+)", level: 78, icon: "📜", years: 1, projects: 5 },
-    { name: "HTML5", level: 88, icon: "🌐", years: 1.5, projects: 6 },
-    { name: "CSS3", level: 82, icon: "🎨", years: 1.5, projects: 6 },
-    { name: "Tailwind CSS", level: 72, icon: "🌊", years: 0.5, projects: 3 },
-    { name: "Bootstrap", level: 76, icon: "🅱️", years: 1, projects: 3 },
-    { name: "SCSS", level: 65, icon: "💅", years: 0.5, projects: 1 },
-    { name: "Framer Motion", level: 60, icon: "🎥", years: 0.3, projects: 1 },
-  ],
-
-  backend: [
-    { name: "Node.js (Basics)", level: 50, icon: "🟢", years: 0.3, projects: 1 },
-    { name: "PHP", level: 60, icon: "🐘", years: 0.5, projects: 2 },
-  ],
-
-  database: [
-    { name: "MySQL", level: 65, icon: "🗄️", years: 0.5, projects: 2 },
-  ],
-
-  tools: [
-    { name: "Git", level: 72, icon: "🔗", years: 1, projects: 5 },
-    { name: "GitHub", level: 75, icon: "🐙", years: 1, projects: 5 },
-    { name: "VS Code", level: 88, icon: "💻", years: 1.5, projects: 6 },
-    { name: "Postman", level: 70, icon: "📮", years: 0.5, projects: 2 },
-    { name: "Vercel / Netlify", level: 75, icon: "🚀", years: 0.5, projects: 3 },
-    { name: "Hostinger", level: 70, icon: "🌍", years: 0.5, projects: 2 },
-    { name: "GSAP", level: 65, icon: "🎬", years: 0.3, projects: 1 },
-  ],
-};
-
-
-// Testimonials data
 export const testimonials = [
   {
     name: "Meta Future Services",
     role: "Internship Supervisor",
     company: "Meta Future Services",
-    content: "Gaurav built our company website from scratch with great attention to detail. His implementation of animations and responsive design exceeded our expectations.",
+    content:
+      "Gaurav built our company website from scratch with great attention to detail. His implementation of animations and responsive design exceeded our expectations.",
     avatar: "👨‍💼",
     rating: 4,
   },
@@ -151,9 +221,9 @@ export const testimonials = [
     name: "Dr. Syamantak Srivastava",
     role: "Founder & Chief Dentist",
     company: "NeuroDentica",
-    content: "Working with Gaurav was an excellent experience. He designed and developed the NeuroDentica website with a modern, professional look and smooth user experience. The website has significantly improved our clinic’s online presence and made it easier for patients to connect with us.",
+    content:
+      "Gaurav designed and developed the NeuroDentica website with a modern, professional look and smooth user experience. The website has significantly improved our clinic’s online presence.",
     avatar: "🦷",
     rating: 5,
-  }
-
+  },
 ];

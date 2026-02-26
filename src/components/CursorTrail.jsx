@@ -1,155 +1,107 @@
-import { useState, useEffect, useRef, useMemo } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+// src/components/CursorTrail.jsx
+import { useEffect, useState } from "react";
+import { motion, useMotionValue, useSpring } from "framer-motion";
 
-const CursorTrail = () => {
-  const [position, setPosition] = useState({ x: 0, y: 0 });
-  const [trailPositions, setTrailPositions] = useState([]);
-  const [isVisible, setIsVisible] = useState(false);
+export default function CursorTrail() {
   const [isMobile, setIsMobile] = useState(false);
-  const cursorRef = useRef(null);
-  const requestRef = useRef();
-  const previousTimeRef = useRef();
+  const [cursorVariant, setCursorVariant] = useState("default");
 
-  const particles = useMemo(() => 
-    Array.from({ length: 12 }, (_, i) => ({
-      id: i,
-      size: Math.max(4, 24 - i * 1.5),
-      delay: i * 0.03,
-      opacity: 0.7 - (i * 0.05)
-    })), []
-  );
+  // Motion values for raw mouse position
+  const mouseX = useMotionValue(-100);
+  const mouseY = useMotionValue(-100);
+
+  // Smooth springs for the "Follower" (The orange glow)
+  // Damping: Higher = less oscillation (bounciness)
+  // Stiffness: Higher = snaps faster
+  // Mass: Higher = moves slower/heavier
+  const springConfig = { damping: 25, stiffness: 200, mass: 0.5 };
+  const followerX = useSpring(mouseX, springConfig);
+  const followerY = useSpring(mouseY, springConfig);
 
   useEffect(() => {
+    // Check mobile
     const checkMobile = () => {
-      const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-      setIsMobile(isMobileDevice);
+      setIsMobile(window.matchMedia("(max-width: 768px)").matches);
     };
-    
     checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
+    window.addEventListener("resize", checkMobile);
 
-  useEffect(() => {
-    if (isMobile) return;
-
-    const handleMouseMove = (e) => {
-      setPosition({ x: e.clientX, y: e.clientY });
-      setIsVisible(true);
-      
-      // Update trail positions
-      setTrailPositions(prev => {
-        const newPositions = [{ x: e.clientX, y: e.clientY }, ...prev];
-        return newPositions.slice(0, particles.length);
-      });
+    // Mouse Listeners
+    const moveCursor = (e) => {
+      mouseX.set(e.clientX);
+      mouseY.set(e.clientY);
     };
 
-    const handleMouseLeave = () => {
-      setIsVisible(false);
-    };
+    const mouseDown = () => setCursorVariant("click");
+    const mouseUp = () => setCursorVariant("default");
 
-    window.addEventListener('mousemove', handleMouseMove);
-    window.addEventListener('mouseleave', handleMouseLeave);
+    // Add listeners for hover effects on clickable elements
+    const linkHoverStart = () => setCursorVariant("hover");
+    const linkHoverEnd = () => setCursorVariant("default");
+
+    window.addEventListener("mousemove", moveCursor);
+    window.addEventListener("mousedown", mouseDown);
+    window.addEventListener("mouseup", mouseUp);
+
+    // Attach hover listeners to all links/buttons automatically
+    const clickables = document.querySelectorAll('a, button, input, textarea');
+    clickables.forEach(el => {
+        el.addEventListener('mouseenter', linkHoverStart);
+        el.addEventListener('mouseleave', linkHoverEnd);
+    });
 
     return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-      window.removeEventListener('mouseleave', handleMouseLeave);
-      cancelAnimationFrame(requestRef.current);
+      window.removeEventListener("resize", checkMobile);
+      window.removeEventListener("mousemove", moveCursor);
+      window.removeEventListener("mousedown", mouseDown);
+      window.removeEventListener("mouseup", mouseUp);
+      clickables.forEach(el => {
+        el.removeEventListener('mouseenter', linkHoverStart);
+        el.removeEventListener('mouseleave', linkHoverEnd);
+      });
     };
-  }, [isMobile, particles.length]);
+  }, [mouseX, mouseY]);
 
-  // Animation loop for smoother trail
-  const animate = (time) => {
-    if (previousTimeRef.current !== undefined) {
-      // You can add additional animation logic here if needed
-    }
-    previousTimeRef.current = time;
-    requestRef.current = requestAnimationFrame(animate);
-  };
-
-  useEffect(() => {
-    requestRef.current = requestAnimationFrame(animate);
-    return () => cancelAnimationFrame(requestRef.current);
-  }, []);
-
-  if (isMobile) {
-    return null;
-  }
+  if (isMobile) return null;
 
   return (
-    <AnimatePresence>
-      {isVisible && (
-        <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-          {/* Main cursor with glow effect */}
-          <motion.div
-            ref={cursorRef}
-            className="absolute w-20 h-20 rounded-full pointer-events-none"
-            animate={{
-              x: position.x - 24,
-              y: position.y - 24,
-              scale: [1, 1.1, 1],
-            }}
-            transition={{
-              duration: 0.5,
-              ease: "easeOut"
-            }}
-            style={{
-              background: 'radial-gradient(circle, rgba(99,102,241,0.8) 0%, rgba(236,72,153,0.6) 100%)',
-              boxShadow: '0 0 80px 105px rgba(99, 102, 241, 0.5), 0 0 60px 40px rgba(236, 72, 153, 0.3)',
-              filter: 'blur(0.5px)',
-              opacity:0.4
-            }}
-          />
-          
-          {/* Inner dot */}
-          <motion.div
-            className="absolute w-4 h-4 bg-white rounded-full pointer-events-none"
-            animate={{
-              x: position.x - 4,
-              y: position.y - 4,
-            }}
-            transition={{
-              duration: 0.1,
-              ease: "linear"
-            }}
-          />
+    <div className="fixed inset-0 pointer-events-none z-[9999] overflow-hidden">
+      
+      {/* 1. THE FOLLOWER (Orange Glow) - Lags behind slightly */}
+      <motion.div
+        className="absolute top-0 left-0 w-8 h-8 bg-orange-500/30 rounded-full blur-md"
+        style={{
+          x: followerX,
+          y: followerY,
+          translateX: "-50%",
+          translateY: "-50%",
+        }}
+        variants={{
+          default: { scale: 1 },
+          hover: { scale: 2.5, backgroundColor: "rgba(249, 115, 22, 0.4)" }, // Orange-500
+          click: { scale: 0.8 },
+        }}
+        animate={cursorVariant}
+        transition={{ duration: 0.2 }}
+      />
 
-          {/* Trail particles */}
-          {particles.map((particle, index) => {
-            const trailPos = trailPositions[index] || position;
-            return (
-              <motion.div
-                key={particle.id}
-                className="absolute rounded-full pointer-events-none"
-                style={{
-                  width: particle.size,
-                  height: particle.size,
-                  background: `radial-gradient(circle, rgba(99,102,241,${particle.opacity}) 0%, rgba(236,72,153,${particle.opacity * 0.8}) 100%)`,
-                  boxShadow: `0 0 ${particle.size}px ${particle.size/3}px rgba(99, 102, 241, ${particle.opacity * 0.3})`,
-                  filter: 'blur(0.5px)'
-                }}
-                initial={{ 
-                  x: trailPos.x - particle.size/2, 
-                  y: trailPos.y - particle.size/2,
-                  opacity: 0 
-                }}
-                animate={{
-                  x: trailPos.x - particle.size/2,
-                  y: trailPos.y - particle.size/2,
-                  opacity: particle.opacity
-                }}
-                transition={{
-                  duration: 0.4,
-                  // delay: particle.delay,
-                  ease: "easeOut"
-                }}
-              />
-            );
-          })}
-        </div>
-      )}
-    </AnimatePresence>
+      {/* 2. THE POINTER (Sharp White Dot) - Instant movement */}
+      <motion.div
+        className="absolute top-0 left-0 w-2 h-2 bg-white rounded-full mix-blend-difference"
+        style={{
+          x: mouseX,
+          y: mouseY,
+          translateX: "-50%",
+          translateY: "-50%",
+        }}
+        variants={{
+          default: { scale: 1 },
+          hover: { scale: 0 }, // Hide dot on hover for cleaner look
+          click: { scale: 0.5 },
+        }}
+        animate={cursorVariant}
+        transition={{ duration: 0.1 }}
+      />
+    </div>
   );
-};
-
-export default CursorTrail;
+}
