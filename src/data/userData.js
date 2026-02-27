@@ -7,7 +7,7 @@ export const userData = {
   location: "Lucknow, India",
   email: "gauravp9118@gmail.com",
   phone: "+91 9118357637",
-  website: "https://gauravpandey.dev",
+  website: "https://gauravpandey.vercel.app",
   resumeUrl:
     "https://drive.google.com/file/d/1_2I_QX-HLCZ-5LmNb4M_1EvbBxLr6KU3/view?usp=sharing",
   avatar: "/assets/profile.jpeg",
@@ -26,7 +26,7 @@ I've worked on company websites, a clinic platform, an investment product, and a
       period: "15 Mar 2025 – 15 Sep 2025",
       location: "Lucknow (On-site)",
       achievements: [
-        "Delivered 3 client-facing projects: company site, clinic system, and investment platform.",
+        "Delivered 3+ client-facing projects: company site, clinic system, and investment platform.",
         "Implemented responsive UI, animations (GSAP/Framer Motion), and reusable component patterns.",
         "Integrated frontend with APIs, basic auth flows, and handled deployments on Hostinger and Vercel.",
       ],
@@ -70,8 +70,8 @@ I've worked on company websites, a clinic platform, an investment product, and a
   social: {
     github: "https://github.com/GauraVPandeyyy",
     linkedin: "https://www.linkedin.com/in/gaurav-pandey-0987162a0/",
-    twitter: "https://x.com/gaura_vp9118",
-    website: "https://gauravpandey.dev",
+    twitter: "https://x.com/gaurav_pandeyyy",
+    website: "https://gauravpandey.vercel.app",
   },
 
   stats: {
@@ -87,7 +87,7 @@ export const skills = {
   frontend: ["React", "JavaScript (ES6+)", "HTML5", "CSS3", "Tailwind CSS", "Framer Motion", "GSAP"],
   backend: ["Node.js", "Express"],
   database: ["MongoDB", "MySQL"],
-  tools: ["Git", "GitHub", "Postman", "VS Code", "Vercel", "Hostinger", "Netlify"],
+  tools: ["Git", "GitHub", "Postman", "VS Code", "Vercel", "Cloudflare", "Hostinger", "Netlify"],
 };
 
 export const projects = [
@@ -100,7 +100,7 @@ export const projects = [
     technologies: ["React", "Tailwind CSS", "Framer Motion", "REST APIs"],
     liveUrl: "https://teerthankar.vercel.app",
     githubUrl: "https://github.com/GauraVPandeyyy/Teerthankar",
-    featured: false,
+    featured: true,
     category: "E-Commerce",
     metrics: {
       catalog: "Dynamic products & categories",
@@ -163,7 +163,7 @@ export const projects = [
       "Official marketing website for Meta Future Services with GSAP and scroll-based animations. Fully responsive and performance-optimized for production use.",
     image: "/assets/mfs.png",
     technologies: ["HTML5", "CSS3", "JavaScript", "GSAP", "AOS"],
-    liveUrl: "https://metafutureservices.in/",
+    liveUrl: "https://gauravpandeyyy.github.io/MFS/",
     githubUrl: "https://github.com/GauraVPandeyyy/MFS",
     featured: true,
     category: "Company Website",
@@ -224,6 +224,6 @@ export const testimonials = [
     content:
       "Gaurav designed and developed the NeuroDentica website with a modern, professional look and smooth user experience. The website has significantly improved our clinic’s online presence.",
     avatar: "🦷",
-    rating: 5,
+    rating: 4.5,
   },
 ];
