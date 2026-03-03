@@ -33,12 +33,18 @@ export default function Navbar({
         <div className="hidden md:flex items-center gap-1 relative">
           {navItems.map(({ id, label }) => {
             const isActive = currentSection === id;
+            const isBlog = id === "blog";
+            
             return (
               <button
                 key={id}
                 onClick={() => scrollToSection(id)}
-                className={`relative px-6 py-2 text-sm font-bold transition-colors duration-300 z-10 ${
-                  isActive ? "text-black" : "text-neutral-400 hover:text-white"
+                className={`relative px-6 py-2 text-sm font-bold transition-all duration-300 z-10 ${
+                  isActive 
+                    ? "text-black" 
+                    : isBlog 
+                      ? "text-orange-500 hover:text-orange-400 drop-shadow-[0_0_8px_rgba(249,115,22,0.3)]" // Highlighted Blog Styling
+                      : "text-neutral-400 hover:text-white"
                 }`}
               >
                 {label}
@@ -74,23 +80,30 @@ export default function Navbar({
             transition={{ duration: 0.2 }}
           >
             <div className="flex flex-col gap-2">
-              {navItems.map(({ id, label }) => (
-                <button
-                  key={id}
-                  onClick={() => {
-                    scrollToSection(id);
-                    setMobileMenuOpen(false);
-                  }}
-                  className={`flex items-center justify-between px-6 py-4 rounded-2xl text-lg font-bold transition-all ${
-                    currentSection === id
-                      ? "bg-orange-600 text-white"
-                      : "text-neutral-400 hover:bg-white/5"
-                  }`}
-                >
-                  {label}
-                  {currentSection === id && <motion.div layoutId="activeDot" className="w-2 h-2 rounded-full bg-white" />}
-                </button>
-              ))}
+              {navItems.map(({ id, label }) => {
+                const isActive = currentSection === id;
+                const isBlog = id === "blog";
+                
+                return (
+                  <button
+                    key={id}
+                    onClick={() => {
+                      scrollToSection(id);
+                      setMobileMenuOpen(false);
+                    }}
+                    className={`flex items-center justify-between px-6 py-4 rounded-2xl text-lg font-bold transition-all ${
+                      isActive
+                        ? "bg-orange-600 text-white"
+                        : isBlog
+                          ? "text-orange-500 hover:bg-orange-500/10" // Highlighted Blog Styling for Mobile
+                          : "text-neutral-400 hover:bg-white/5"
+                    }`}
+                  >
+                    {label}
+                    {isActive && <motion.div layoutId="activeDot" className="w-2 h-2 rounded-full bg-white" />}
+                  </button>
+                );
+              })}
             </div>
           </motion.div>
         )}

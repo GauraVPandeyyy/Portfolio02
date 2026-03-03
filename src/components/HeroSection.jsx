@@ -58,7 +58,7 @@ export default function HeroSection({ userData }) {
       </div> */}
 
       <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center justify-center">
           {/* --- LEFT TEXT --- */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -207,7 +207,7 @@ export default function HeroSection({ userData }) {
           </motion.div>
 
           {/* --- RIGHT 3D CARD --- */}
-          <div className="flex justify-center items-center perspective-1000">
+          <div className="flex justify-center md:justify-end items-center perspective-1000">
             <TiltCard className="relative w-80 h-[480px] rounded-[2rem] bg-neutral-900/40 backdrop-blur-2xl border border-white/10 shadow-2xl shadow-orange-500/10 flex flex-col items-center justify-between p-6">
               {/* Image Container */}
               <div className="w-full aspect-square rounded-2xl overflow-hidden border border-white/5 relative group">

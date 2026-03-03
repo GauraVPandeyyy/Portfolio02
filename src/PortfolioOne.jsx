@@ -13,6 +13,7 @@ import AboutSection from "./components/AboutSection";
 import ExperienceSection from "./components/ExperienceSection";
 import SkillsSection from "./components/SkillsSection";
 import ProjectsSection from "./components/ProjectsSection";
+import BlogSection from "./components/BlogSection";
 import TestimonialsSection from "./components/TestimonialsSection";
 import ContactSection from "./components/ContactSection";
 import ApiSandboxSection from "./components/ApiSandboxSection";
@@ -30,6 +31,7 @@ export default function PortfolioOne() {
     { id: "projects", label: "Projects" },
     { id: "testimonials", label: "Testimonials" },
     { id: "contact", label: "Contact" },
+    { id: "blog", label: "Blog" },
   ];
 
   // Loader: smooth 0–100% using time-based easing
@@ -134,6 +136,7 @@ export default function PortfolioOne() {
           <ApiSandboxSection />
           {/* <ArchitectureSection /> */}
           <ProjectsSection />
+          <BlogSection />
           <TestimonialsSection />
           <ContactSection />
         </main>

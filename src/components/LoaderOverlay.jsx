@@ -47,7 +47,7 @@ export default function LoaderOverlay({ progress, isDone }) {
             <div className="relative bg-[#0A0A0A] border border-white/10 rounded-2xl overflow-hidden shadow-2xl shadow-black">
               
               {/* Editor Header */}
-              <div className="flex items-center justify-between px-4 py-3 border-b border-white/5 bg-white/[0.02]">
+              <div className="flex items-center justify-between px-1 md:px-4 py-2 md:py-3 border-b border-white/5 bg-white/[0.02]">
                 <div className="flex items-center gap-2">
                   <div className="w-3 h-3 rounded-full bg-red-500/80" />
                   <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
@@ -61,10 +61,10 @@ export default function LoaderOverlay({ progress, isDone }) {
               </div>
 
               {/* Editor Body (The Code) */}
-              <div className="p-6 md:p-8 font-mono text-xs sm:text-sm md:text-base leading-relaxed overflow-x-auto">
+              <div className="p-2 md:p-8 font-mono text-xs sm:text-sm md:text-base leading-relaxed overflow-x-auto">
                 <div className="flex">
                   {/* Line Numbers */}
-                  <div className="flex flex-col text-neutral-700 pr-4 select-none text-right border-r border-white/5 mr-4">
+                  <div className="flex flex-col text-neutral-700 pr-1 md:pr-4 select-none text-right border-r border-white/5 mr-4">
                     <span>1</span>
                     <span>2</span>
                     <span>3</span>
@@ -80,22 +80,22 @@ export default function LoaderOverlay({ progress, isDone }) {
                       <span className="text-purple-400">const</span> <span className="text-blue-400">developer</span> <span className="text-white">=</span> <span className="text-yellow-300">{'{'}</span>
                     </div>
                     
-                    <div className="pl-6">
+                    <div className="pl-1 md:pl-6">
                       <span className="text-orange-300">name</span><span className="text-white">: </span>
                       <span className="text-green-400">'Gaurav Pandey'</span><span className="text-white">,</span>
                     </div>
                     
-                    <div className="pl-6">
+                    <div className="pl-1 md:pl-6">
                       <span className="text-orange-300">stack</span><span className="text-white">: </span>
                       <span className="text-green-400">['MongoDB', 'Express', 'React', 'Node']</span><span className="text-white">,</span>
                     </div>
                     
-                    <div className="pl-6">
+                    <div className="pl-1 md:pl-6">
                       <span className="text-orange-300">task</span><span className="text-white">: </span>
                       <span className="text-neutral-400">"{getStatusString()}"</span><span className="text-white">,</span>
                     </div>
                     
-                    <div className="pl-6 flex items-center">
+                    <div className="pl-1 md:pl-6 flex items-center">
                       <span className="text-orange-300">progress</span><span className="text-white">: </span>
                       <span className="text-blue-400 ml-2">{progress}</span>
                       <span className="text-white">;</span>
